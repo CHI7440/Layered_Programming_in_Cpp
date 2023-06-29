@@ -1,0 +1,29 @@
+#ifndef __uomdao__$__dl
+#define __uomdao__$__dl 1234
+#include<dl/iuom>
+#include<dl/uom>
+#include<dl/iuomdao>
+#include<dl/DAOException>
+#include<forward_list>
+
+namespace inventory
+{
+namespace data_layer
+{
+class UnitOfMeasurementDAO: public abc::IUnitOfMeasurementDAO
+{
+public:
+void add(abc::IUnitOfMeasurement* unitOfMeasurement);
+void update(abc::IUnitOfMeasurement* unitOfMeasurement);
+void remove(int code);
+abc::IUnitOfMeasurement* getByCode(int code);
+abc::IUnitOfMeasurement* getByTitle(string title);
+forward_list<abc::IUnitOfMeasurement*> * getAll();
+int getCount();
+int codeExists(int code);
+int titleExists(string title);
+};
+}
+}
+
+#endif

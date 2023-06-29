@@ -1,0 +1,31 @@
+#ifndef __iuommanager__$__bl
+#define __iuommanager__$__bl 1234;
+#include<bl/iuom>
+#include<bl/uom>
+#include<bl/BLException>
+#include<forward_list>
+
+namespace inventory
+{
+namespace business_layer
+{
+namespace abc //abc --> abstract base class
+{
+class IUnitOfMeasurementManager
+{
+public:
+virtual void addUnitOfMeasurement(abc::IUnitOfMeasurement *unitOfMeasurement) = 0;
+virtual void updateUnitOfMeasurement(abc::IUnitOfMeasurement *unitOfMeasurement) = 0;
+virtual void removeUnitOfMeasurementByCode(int code) = 0;
+virtual void removeUnitOfMeasurementByTitle(string title) = 0;
+virtual IUnitOfMeasurement * getUnitOfMeasurementByCode(int code) = 0;
+virtual IUnitOfMeasurement *  getUnitOfMeasurementByTitle(string title) = 0;
+virtual forward_list<IUnitOfMeasurement *> * getUnitOfMeasurements() = 0;
+virtual int unitOfMeasurementTitleExists(string title) = 0;
+virtual int unitOfMeasurementCodeExists(int code) = 0;
+virtual int getUnitOfMeasurementCount()  = 0;
+};
+}
+}
+}
+#endif

@@ -1,0 +1,31 @@
+#ifndef __iuomdao__$__dl
+#define __iuomdao__$__dl 1234;
+#include<dl/iuom>
+#include<dl/uom>
+#include<dl/DAOException>
+#include<forward_list>
+
+namespace inventory
+{
+namespace data_layer
+{
+namespace abc //abc --> abstract base class
+{
+class IUnitOfMeasurementDAO
+{
+public:
+static string FILE_NAME;
+virtual void add(abc::IUnitOfMeasurement *unitOfMeasurement) = 0;
+virtual void update(abc::IUnitOfMeasurement*unitOfMeasurement) = 0;
+virtual void remove(int code) = 0;
+virtual abc::IUnitOfMeasurement* getByCode(int code) = 0;
+virtual abc::IUnitOfMeasurement* getByTitle(string title) = 0;
+virtual forward_list<abc::IUnitOfMeasurement*> * getAll() = 0;
+virtual int getCount() = 0;
+virtual int codeExists(int code) = 0;
+virtual int titleExists(string title) = 0;
+};
+}
+}
+}
+#endif
